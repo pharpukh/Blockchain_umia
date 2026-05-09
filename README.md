@@ -2,158 +2,177 @@
 perfect project for umia
 # UmiaScore
 
-UmiaScore is an agent-native venture screening and funding coordination layer for onchain builders.
+UmiaScore is an agent-native venture underwriting layer for onchain founders.
 
-It helps incubators, hackathons, venture studios, and onchain organizations evaluate technical founder credibility using verifiable smart contract history, then turn that signal into structured capital allocation and milestone-based support.
+It helps Umia, accelerators, grant programs, and venture studios evaluate whether a team has real execution credibility before capital is allocated, legal structure is formed, or a tokenized venture path is initiated.
 
-## What this project does
+Instead of depending on narrative quality alone, UmiaScore transforms verifiable onchain development history into a structured decision input for funding, onboarding, and venture formation.
 
-UmiaScore analyzes a developer wallet and produces a transparent builder profile based on verified contract activity.
+## Why this exists
 
-Instead of relying on subjective form answers alone, the system uses onchain contract verification data to estimate:
-- proof of shipping,
-- technical consistency,
-- documentation quality,
-- activity history,
-- complexity of deployed systems,
-- security signals.
+Early-stage onchain investing and grant-making still rely too heavily on subjective judgment:
+- polished applications can outperform real builders,
+- technical credibility is hard to assess quickly,
+- funding decisions are often not legible to contributors, backers, or agents,
+- venture formation starts before execution quality is properly underwritten.
 
-The result is a machine-readable developer score, explanation breakdown, and project context object that can be used by agents, reviewers, or treasury logic.
+This creates a coordination gap at the exact moment where Umia is most powerful:
+the transition from idea-stage experimentation to an investable, governable, onchain venture.
 
-## Why this matters for Umia
+UmiaScore fills that gap.
 
-Umia needs ventures that can move from early experimentation into real onchain organizations with a credible path to funding, governance, and execution.
+## What UmiaScore does
 
-UmiaScore helps solve the very first coordination problem in that flow:
-**how to evaluate whether a team has real technical execution capacity before allocating capital, legal setup, or token support.**
+UmiaScore analyzes a founder’s developer wallet and converts verified contract history into a machine-readable builder profile.
 
-This project is useful for Umia because it can serve as:
-- an intake layer for founder applications,
-- a reputation layer for agentic ventures,
-- a risk filter before treasury deployment,
-- an input into milestone-based funding,
-- an input into decision markets around founder quality and execution probability.
+The system evaluates technical execution using signals such as:
+- verified deployment count,
+- contract recency and activity span,
+- chain diversity,
+- compiler and artifact metadata,
+- ABI and source availability,
+- documentation coverage,
+- repeated shipping behavior,
+- proxy and upgrade patterns,
+- suspicious or risky implementation patterns.
 
-In practice, UmiaScore can sit at the top of the venture pipeline:
-1. founder submits wallet + repo + project info,
-2. agent evaluates onchain builder history,
-3. system generates a structured score and rationale,
-4. the result feeds grant sizing, onboarding priority, and venture formation decisions.
+The output is not just a score. It is a structured underwriting object that agents, reviewers, treasuries, and venture workflows can all use consistently.
 
-## Core insight
+## Why this is highly relevant to Umia
 
-Most hackathon and early-stage venture review is still heavily narrative-based.
+Umia positions itself as infrastructure for launching and operating agentic ventures, with aligned capital formation, a programmable legal wrapper, and transparent decision markets.[web:613][web:706]  
+For that model to work well, Umia needs a way to assess whether a team is actually capable of shipping before that team is routed into funding, governance, and tokenization workflows.[web:613][web:627]
 
-That creates a gap:
-teams can present well, but evaluators often lack a fast, objective, and legible way to measure whether a founder has actually deployed, verified, documented, and maintained smart contracts before.
+UmiaScore is useful because it can become the first decision layer in that stack:
+- before capital formation,
+- before venture admission,
+- before milestone funding,
+- before token launch preparation,
+- before community-governed allocation.
 
-UmiaScore turns public onchain development evidence into a funding primitive.
-
-It does not replace human judgment.
-It improves it by giving both humans and agents a shared factual baseline.
+In other words, UmiaScore gives Umia a technical credibility primitive.
 
 ## Product flow
 
 ### 1. Founder intake
 A founder submits:
 - project name,
-- short description,
+- short venture thesis,
 - deployer wallet,
-- GitHub repo,
-- funding request,
-- preferred venture path.
+- GitHub repository,
+- requested support,
+- intended onchain business model.
 
 ### 2. Automated builder audit
-The system fetches the founder’s verified contract history and extracts features such as:
-- number of verified contracts,
-- verification quality,
-- chain usage,
-- activity span,
-- documentation coverage,
-- ABI complexity,
-- proxy usage,
-- suspicious patterns.
+An agent inspects the wallet’s verified contract history and extracts execution evidence.
 
-### 3. Structured evaluation
+This includes shipping consistency, technical complexity, documentation quality, chain behavior, and potential risk markers.
+
+### 3. Structured underwriting output
 The system returns:
-- total score,
-- verdict (`APPROVE` / `REVIEW` / `REJECT`),
-- criterion-by-criterion breakdown,
-- developer context for other agents,
-- summary explanations.
+- overall execution score,
+- evidence-backed explanation,
+- positive and negative signals,
+- risk flags,
+- recommended review path,
+- machine-readable JSON context for downstream agents.
 
-### 4. Funding and venture routing
-The result can be used to:
-- recommend small / medium / large grant tiers,
-- route teams into fast-track or manual review,
-- trigger enhanced due diligence for risky profiles,
-- prepare ventures for an Umia-native legal and token path.
+### 4. Venture routing
+The output can then feed:
+- grant sizing,
+- founder prioritization,
+- diligence escalation,
+- milestone-based treasury support,
+- token-readiness review,
+- venture formation workflows inside Umia.
 
 ## Why this is agentic
 
-This is not just a dashboard.
+UmiaScore is not a static dashboard.
 
-It is an agent workflow:
-- an intake agent structures founder inputs,
-- a scoring agent audits deployer evidence,
-- a policy agent maps score to funding and compliance logic,
-- a venture agent routes the project into the next organizational step.
+It is a multi-agent workflow:
+- an intake agent structures founder submissions,
+- a scoring agent evaluates technical execution evidence,
+- a policy agent maps the score to review and funding logic,
+- a venture-routing agent determines the next organizational step.
 
-That makes the system useful both for general users and for CLI / operator workflows.
+That makes the system directly compatible with the kind of agent-native operating model Umia is building for ventures.[web:706][web:627]
 
-## Long-term venture potential
+## Why this is differentiated
 
-This project has a clear path beyond the hackathon.
+Most founder evaluation tools focus on social reputation, pitch quality, or generic dashboards.
 
-Potential users include:
-- onchain venture studios,
+UmiaScore is different because it starts from verifiable technical behavior onchain and turns that into a reusable funding signal.
+
+Its differentiation comes from five things:
+- evidence-first evaluation rather than narrative-first evaluation,
+- outputs designed for both humans and agents,
+- compatibility with tokenized venture formation,
+- explainable scoring rather than opaque ranking,
+- direct usefulness in capital allocation workflows.
+
+## Why this can become a real venture
+
+This is not just a hackathon demo.
+
+The same system can be sold or deployed for:
+- onchain accelerators,
 - DAO grant programs,
-- accelerators,
-- hackathons,
 - ecosystem funds,
-- protocol incubators,
-- agent-native investment workflows.
+- hackathons,
+- venture studios,
+- token communities,
+- agent-driven investment pipelines.
 
-Potential business models include:
-- B2B SaaS for incubators and grant programs,
-- API access for scoring and builder reputation,
-- enterprise due diligence tooling for onchain teams,
-- premium workflows for venture onboarding and milestone tracking.
+Revenue paths are straightforward:
+- underwriting API access,
+- B2B SaaS for incubators and grants programs,
+- premium founder diligence workflows,
+- embedded scoring inside venture formation platforms,
+- monitoring and milestone-review subscriptions.
 
-## Why the model is viable
+## Why the business model is strong
 
-The value proposition is simple:
-better builder screening leads to better capital allocation.
+Better founder evaluation improves capital efficiency.
 
-As more organizations fund founders onchain, they will need:
-- better reputation signals,
-- auditable technical history,
-- machine-readable underwriting inputs,
-- tools that connect execution evidence with venture formation.
+Every organization that funds early-stage onchain teams faces the same problem:
+who is actually able to ship, and how do we know before capital is committed?
 
-UmiaScore is designed to become that infrastructure layer.
+UmiaScore reduces that uncertainty with structured, legible, and automatable evidence.
 
-## What makes this stand out
+That makes it valuable not only during selection, but also during:
+- follow-on funding,
+- milestone review,
+- treasury governance,
+- token community oversight.
 
-- It uses real onchain development evidence rather than only social or narrative signals.
-- It is legible to both humans and agents.
-- It naturally plugs into tokenized venture formation.
-- It creates a bridge between technical proof-of-work and capital formation.
-- It fits a future where ventures are evaluated, funded, and governed by programmable workflows.
+## Why this belongs in the Umia ecosystem
+
+Umia is building the infrastructure layer for funding and governing agentic ventures through tokenization, crowdfunding, and decision markets.[web:627]  
+UmiaScore fits naturally into that ecosystem as the underwriting and founder-quality layer that precedes those higher-order coordination mechanisms.[web:613][web:627]
+
+If Umia helps ventures form and operate onchain, UmiaScore helps decide which ventures should enter that pipeline in the first place.
+
+That is why this project is not adjacent to Umia.
+It is structurally complementary to Umia.
 
 ## Example output
 
-For a submitted founder wallet, the system can produce:
+For one submitted wallet, UmiaScore can produce:
 - a score from 0 to 1,
+- a confidence band,
 - a funding recommendation,
+- an execution summary,
 - a risk note,
-- a summary of technical history,
+- an explanation tree,
 - a machine-readable context payload for downstream agents.
 
-This makes the decision process explainable rather than opaque.
+This makes the decision process auditable, explainable, and easier to integrate into capital formation and venture governance flows.
 
 ## Vision
 
-The long-term vision is to make founder evaluation for onchain ventures more objective, faster, and more programmable.
+The long-term vision is to make founder evaluation for onchain ventures more objective, more legible, and more programmable.
 
-If Umia is the layer that helps launch and govern agentic ventures, UmiaScore can become the layer that helps determine which ventures should be trusted, funded, and routed into that pipeline in the first place.
+In the same way credit underwriting became infrastructure for financial systems, execution underwriting can become infrastructure for agentic venture formation.
+
+UmiaScore is designed to be that layer for the next generation of onchain organizations.
